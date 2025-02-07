@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="medicine_source">
+        <item>New Medicine</item>
+        <item>From List</item>
+        <item>From Prescription</item>
+    </string-array>
+</resources>
