@@ -143,8 +143,6 @@ public class CalendarActivity extends AppCompatActivity  implements RecyclerView
 
         UpdateRecyclerView(selectedDateString);
 
-        Log.println(Log.DEBUG, "TEST", currentUser.getUid());
-
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
