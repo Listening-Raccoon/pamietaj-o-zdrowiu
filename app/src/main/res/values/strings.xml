@@ -61,4 +61,6 @@
     <string name="details_group">Group</string>
     <string name="pantry_section_name">Section name</string>
     <string name="nothing_in_the_pantry">Nothing in the pantry</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete">Delete</string>
 </resources>
