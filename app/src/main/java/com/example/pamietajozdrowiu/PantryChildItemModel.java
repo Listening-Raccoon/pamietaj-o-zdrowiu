@@ -1,24 +1,24 @@
 package com.example.pamietajozdrowiu;
 
 public class PantryChildItemModel {
-    private final String nameTextView;
-    private final String amountTextView;
+    private final String name;
+    private String amount;
     private final String id;
     private final String group;
 
-    public PantryChildItemModel(String nameTextView, String amountTextView, String id, String group) {
-        this.nameTextView = nameTextView;
-        this.amountTextView = amountTextView;
+    public PantryChildItemModel(String name, String amount, String id, String group) {
+        this.name = name;
+        this.amount = amount;
         this.id = id;
         this.group = group;
     }
 
-    public String getNameTextView() {
-        return nameTextView;
+    public String getName() {
+        return name;
     }
 
-    public String getAmountTextView() {
-        return amountTextView;
+    public String getAmount() {
+        return amount;
     }
 
     public String getId() {
@@ -27,5 +27,9 @@ public class PantryChildItemModel {
 
     public String getGroup() {
         return group;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }

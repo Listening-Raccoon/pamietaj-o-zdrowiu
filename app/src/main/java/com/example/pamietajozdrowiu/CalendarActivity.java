@@ -277,4 +277,9 @@ public class CalendarActivity extends AppCompatActivity  implements RecyclerView
 
         detailsDialog.show();
     }
+
+    @Override
+    public void onInstanceClick(int position, List<PantryChildItemModel> childItems) {
+
+    }
 }

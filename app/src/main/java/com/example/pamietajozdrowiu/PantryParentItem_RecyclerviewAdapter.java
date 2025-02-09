@@ -16,11 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PantryParentItem_RecyclerviewAdapter extends RecyclerView.Adapter<PantryParentItem_RecyclerviewAdapter.ViewHolder> {
+    private final RecyclerViewInterface recyclerViewInterface;
+
 
     final private List<PantryParentItemModel> parentItems;
     private List<PantryChildItemModel> childItems = new ArrayList<>();
 
-    public PantryParentItem_RecyclerviewAdapter(List<PantryParentItemModel> parentItems) {
+    public PantryParentItem_RecyclerviewAdapter(List<PantryParentItemModel> parentItems, RecyclerViewInterface recyclerViewInterface) {
+        this.recyclerViewInterface = recyclerViewInterface;
         this.parentItems = parentItems;
     }
 
@@ -50,7 +53,7 @@ public class PantryParentItem_RecyclerviewAdapter extends RecyclerView.Adapter<P
             holder.sectionArrowImage.setVisibility(View.VISIBLE);
         }
 
-        PantryChildItem_RecyclerviewAdapter childAdapter = new PantryChildItem_RecyclerviewAdapter(childItems);
+        PantryChildItem_RecyclerviewAdapter childAdapter = new PantryChildItem_RecyclerviewAdapter(childItems, recyclerViewInterface);
         holder.childRecyclerView.setLayoutManager(new LinearLayoutManager(holder.itemView.getContext()));
         holder.childRecyclerView.setHasFixedSize(true);
         holder.childRecyclerView.setAdapter(childAdapter);
