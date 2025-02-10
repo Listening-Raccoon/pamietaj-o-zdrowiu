@@ -64,4 +64,6 @@
     <string name="confirm">Confirm</string>
     <string name="delete">Delete</string>
     <string name="group">Group</string>
+    <string name="save">Save</string>
+    <string name="nothing_logged_that_day">Nothing logged that day</string>
 </resources>

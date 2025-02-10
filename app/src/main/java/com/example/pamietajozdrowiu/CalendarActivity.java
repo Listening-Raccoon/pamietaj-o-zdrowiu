@@ -109,6 +109,9 @@ public class CalendarActivity extends AppCompatActivity  implements RecyclerView
                     return true;
                 }
                 else if (id == R.id.nav_medical_log) {
+                    Intent intent = new Intent(CalendarActivity.this, LogActivity.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
                     return true;
                 }
                 else if (id == R.id.nav_medical_history) {
