@@ -401,7 +401,6 @@ public class AddMedicineActivity extends AppCompatActivity implements AdapterVie
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Log.println(Log.DEBUG, "DEBUG", "Instance successfully added by AddScheduleInstance");
                         progressBar.setVisibility(View.GONE);
                     }
 
@@ -409,7 +408,6 @@ public class AddMedicineActivity extends AppCompatActivity implements AdapterVie
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.println(Log.DEBUG, "DEBUG", "Failure adding instance by AddScheduleInstance");
                         progressBar.setVisibility(View.GONE);
                     }
                 });
@@ -440,8 +438,6 @@ public class AddMedicineActivity extends AppCompatActivity implements AdapterVie
                             }
                         }
 
-                        Log.println(Log.DEBUG, "TEST", found? "true" : "false");
-
                         if (!found) {
                             Map<String, Object> map = new HashMap<>();
                             String id = UUID.randomUUID().toString();
@@ -465,19 +461,6 @@ public class AddMedicineActivity extends AppCompatActivity implements AdapterVie
         firestore.collection("userData")
                 .document(currentUser.getUid())
                 .collection("medicine")
-                .document((String) map.get("id")).set(map)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.println(Log.DEBUG, "TEST", "1");
-                        Log.println(Log.DEBUG, "DEBUG", "Instance successfully added by AddNameToDatabase");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.println(Log.DEBUG, "DEBUG", "Failure adding instance by AddNameToDatabase");
-                    }
-                });
+                .document((String) map.get("id")).set(map);
     }
 }

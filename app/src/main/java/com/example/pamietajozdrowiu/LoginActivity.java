@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
             String passwordText = passwordEditText.getText().toString();
 
             if (isFormValid(mailText, passwordText)) {
-                Log.println(Log.DEBUG, "TEST", "test1");
                 mAuth.signInWithEmailAndPassword(mailText, passwordText)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -71,9 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this,
                                             "Login Successful",
                                             Toast.LENGTH_SHORT).show();
-                                    Log.println(Log.DEBUG, "TEST", "test2");
                                     startActivity(new Intent(LoginActivity.this, CalendarActivity.class));
-                                    Log.println(Log.DEBUG, "TEST", "test3");
                                     finish();
                                 }
                                 else {
