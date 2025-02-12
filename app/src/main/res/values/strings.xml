@@ -66,4 +66,6 @@
     <string name="group">Group</string>
     <string name="save">Save</string>
     <string name="nothing_logged_that_day">Nothing logged that day</string>
+    <string name="title">Title</string>
+    <string name="history_instance_content">Describe how you are feeling</string>
 </resources>
