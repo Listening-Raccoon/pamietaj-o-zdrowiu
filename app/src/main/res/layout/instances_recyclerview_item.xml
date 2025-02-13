@@ -13,8 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/blue">
+        app:cardCornerRadius="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,7 +25,7 @@
                 android:layout_height="100dp"
                 android:padding="10dp"
                 android:src="@drawable/baseline_medical_services_24"
-                app:tint="@color/white"
+                app:tint="@color/gray"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -43,7 +42,7 @@
                 android:text="apap"
                 android:textStyle="bold"
                 android:textSize="40sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/gray"/>
 
             <TextView
                 android:id="@+id/time_textview"
@@ -55,19 +54,7 @@
                 android:layout_marginTop="3dp"
                 android:text="00:00"
                 android:textSize="20sp"
-                android:textColor="@color/white"/>
-
-            <TextView
-                android:id="@+id/instance_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
+                android:textColor="@color/gray"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.pamietajozdrowiu;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class HistoryInstance_RecyclerviewAdapter extends RecyclerView.Adapter<Hi
         auth = FirebaseAuth.getInstance();
         currentUser = auth.getCurrentUser();
         firestore = FirebaseFirestore.getInstance();
+
     }
 
     @NonNull
@@ -37,9 +39,41 @@ public class HistoryInstance_RecyclerviewAdapter extends RecyclerView.Adapter<Hi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       holder.titleTextView.setText(historyInstances.get(position).getTitle());
-       holder.dateTextView.setText(historyInstances.get(position).getDate());
-       holder.contentTextView.setText(historyInstances.get(position).getContent());
+        holder.titleTextView.setText(historyInstances.get(position).getTitle());
+        holder.dateTextView.setText(historyInstances.get(position).getDate());
+        holder.contentTextView.setText(historyInstances.get(position).getContent());
+
+        holder.contentTextView.setVisibility(View.GONE);
+        holder.warningTextView.setVisibility(View.GONE);
+
+        holder.titleTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (holder.contentTextView.getVisibility() == View.GONE) {
+                    holder.contentTextView.setVisibility(View.VISIBLE);
+                }
+                else if (holder.contentTextView.getVisibility() == View.VISIBLE) {
+                    holder.contentTextView.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        holder.deleteImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!holder.deleteClickedOnce) {
+                    holder.warningTextView.setVisibility(View.VISIBLE);
+                    holder.deleteClickedOnce = true;
+                }
+                else {
+                    DeleteInstanceFromDatabase(holder.getAdapterPosition());
+                    historyInstances.remove(holder.getAdapterPosition());
+                    notifyItemRemoved(holder.getAdapterPosition());
+                    holder.warningTextView.setVisibility(View.GONE);
+                    holder.deleteClickedOnce = false;
+                }
+            }
+        });
     }
 
     @Override
@@ -55,50 +89,15 @@ public class HistoryInstance_RecyclerviewAdapter extends RecyclerView.Adapter<Hi
         ImageView deleteImageView;
         boolean deleteClickedOnce;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             titleTextView = itemView.findViewById(R.id.history_instance_title);
             dateTextView = itemView.findViewById(R.id.history_instance_date);
             contentTextView = itemView.findViewById(R.id.history_instance_content);
             deleteImageView = itemView.findViewById(R.id.history_instance_delete);
             warningTextView = itemView.findViewById(R.id.history_warning_textview);
 
-            contentTextView.setVisibility(View.GONE);
-            warningTextView.setVisibility(View.GONE);
-
-
             deleteClickedOnce = false;
-
-            titleTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (contentTextView.getVisibility() == View.GONE) {
-                        contentTextView.setVisibility(View.VISIBLE);
-                    }
-                    else if (contentTextView.getVisibility() == View.VISIBLE) {
-                        contentTextView.setVisibility(View.GONE);
-                    }
-                }
-            });
-
-            deleteImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (!deleteClickedOnce) {
-                        warningTextView.setVisibility(View.VISIBLE);
-                        deleteClickedOnce = true;
-                    }
-                    else {
-                        DeleteInstanceFromDatabase(getAdapterPosition());
-                        historyInstances.remove(getAdapterPosition());
-                        notifyItemRemoved(getAdapterPosition());
-                        warningTextView.setVisibility(View.GONE);
-                        deleteClickedOnce = false;
-                    }
-                }
-            });
         }
     }
 

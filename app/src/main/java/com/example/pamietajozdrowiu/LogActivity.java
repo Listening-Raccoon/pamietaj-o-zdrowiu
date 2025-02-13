@@ -169,6 +169,7 @@ public class LogActivity extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
+                selectedRating = -1;
                 String month = (i1 + 1) < 10 ? "0" + (i1 + 1) : Integer.toString(i1 + 1);
                 String day = i2 < 10 ? "0" + i2 : Integer.toString(i2);
                 selectedDate = i + "/" + month + "/" + day;
@@ -271,7 +272,7 @@ public class LogActivity extends AppCompatActivity {
                 ratingsLayout.setVisibility(View.VISIBLE);
                 SetRating(downloadedRatings.get(selectedDate));
                 for (ImageView rating: ratings) {
-                    rating.setClickable(true);
+                    rating.setClickable(false);
                 }
             }
             else {

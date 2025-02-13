@@ -25,8 +25,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.jetbrains.annotations.Async;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

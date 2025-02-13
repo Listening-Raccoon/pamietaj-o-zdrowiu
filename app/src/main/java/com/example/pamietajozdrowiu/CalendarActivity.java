@@ -247,7 +247,7 @@ public class CalendarActivity extends AppCompatActivity  implements RecyclerView
                                 }
                             });
 
-                            ScheduleInstance_RecyclerviewAdapter adapter = new ScheduleInstance_RecyclerviewAdapter(CalendarActivity.this, instancesToDisplay, CalendarActivity.this);
+                            ScheduleInstance_RecyclerviewAdapter adapter = new ScheduleInstance_RecyclerviewAdapter(instancesToDisplay, CalendarActivity.this);
 
                             recyclerView.setAdapter(adapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(CalendarActivity.this));

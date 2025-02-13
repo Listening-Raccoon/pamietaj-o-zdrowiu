@@ -15,11 +15,9 @@ import java.util.List;
 public class ScheduleInstance_RecyclerviewAdapter extends RecyclerView.Adapter<ScheduleInstance_RecyclerviewAdapter.ViewHolder>{
     private final RecyclerViewInterface recyclerViewInterface;
 
-    private Context context;
     private List<ScheduleInstanceModel> instances;
 
-    public ScheduleInstance_RecyclerviewAdapter(Context context, List<ScheduleInstanceModel> instances, RecyclerViewInterface recyclerViewInterface) {
-        this.context = context;
+    public ScheduleInstance_RecyclerviewAdapter(List<ScheduleInstanceModel> instances, RecyclerViewInterface recyclerViewInterface) {
         this.instances = instances;
         this.recyclerViewInterface = recyclerViewInterface;
     }
@@ -28,9 +26,7 @@ public class ScheduleInstance_RecyclerviewAdapter extends RecyclerView.Adapter<S
     @NonNull
     @Override
     public ScheduleInstance_RecyclerviewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View view = inflater.inflate(R.layout.instances_recyclerview_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.instances_recyclerview_item, parent, false);
 
         return new ScheduleInstance_RecyclerviewAdapter.ViewHolder(view, recyclerViewInterface);
     }
@@ -39,7 +35,7 @@ public class ScheduleInstance_RecyclerviewAdapter extends RecyclerView.Adapter<S
     public void onBindViewHolder(@NonNull ScheduleInstance_RecyclerviewAdapter.ViewHolder holder, int position) {
         holder.nameTextView.setText(instances.get(position).getName());
         holder.timeTextView.setText(instances.get(position).getTime());
-        holder.instanceIdTextView.setText(instances.get(position).getId());
+        //holder.instanceIdTextView.setText(instances.get(position).getId());
     }
 
     @Override
@@ -56,7 +52,7 @@ public class ScheduleInstance_RecyclerviewAdapter extends RecyclerView.Adapter<S
 
             nameTextView = itemView.findViewById(R.id.name_textview);
             timeTextView = itemView.findViewById(R.id.time_textview);
-            instanceIdTextView = itemView.findViewById(R.id.instance_id);
+            //instanceIdTextView = itemView.findViewById(R.id.instance_id);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
